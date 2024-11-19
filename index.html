@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bookshelf App</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <header class="head_bar">
+    <h1 class="head_bar__title">Bookshelf App</h1>
+    <p class="head_bar__description">Kelola dan cari buku favorit Anda dengan mudah!</p>
+  </header>
+
+  <main class="main">
+    <section class="input_section">
+      <h2>Tambah Buku Baru</h2>
+      <form id="bookForm" data-testid="bookForm">
+        <div class="input">
+          <label for="bookFormTitle">Judul</label>
+          <input id="bookFormTitle" type="text" required data-testid="bookFormTitleInput" placeholder="Masukkan judul buku" />
+        </div>
+        <div class="input">
+          <label for="bookFormAuthor">Penulis</label>
+          <input id="bookFormAuthor" type="text" required data-testid="bookFormAuthorInput" placeholder="Masukkan nama penulis" />
+        </div>
+        <div class="input">
+          <label for="bookFormYear">Tahun</label>
+          <input id="bookFormYear" type="number" required data-testid="bookFormYearInput" placeholder="Masukkan tahun terbit" />
+        </div>
+        <div class="input_selesai">
+          <label for="bookFormIsComplete">Selesai dibaca</label>
+          <input id="bookFormIsComplete" type="checkbox" data-testid="bookFormIsCompleteCheckbox" />
+        </div>
+        <button id="bookFormSubmit" type="submit" data-testid="bookFormSubmitButton">
+          Masukkan Buku ke rak <span>Belum selesai dibaca</span>
+        </button>
+      </form>
+    </section>
+
+    <section class="search">
+      <h2>Cari Buku</h2>
+      <form id="searchBook" data-testid="searchBookForm">
+        <label for="searchBookTitle">Judul</label>
+        <input id="searchBookTitle" type="text" data-testid="searchBookFormTitleInput" placeholder="Cari judul buku" />
+        <button id="searchSubmit" type="submit" data-testid="searchBookFormSubmitButton">Cari</button>
+      </form>
+    </section>
+
+    <section class="book_self">
+      <h2>Belum selesai dibaca</h2>
+      <div id="incompleteBookList" class="listBook" data-testid="incompleteBookList">
+        <!-- Buku Belum Selesai Dibaca akan ditambahkan di sini -->
+        <div class="bookItem" data-testid="bookItem">
+          <h3 class="bookItemTitle" data-testid="bookItemTitle">Judul Buku</h3>
+          <p class="bookItemAuthor" data-testid="bookItemAuthor">Penulis Buku</p>
+          <p class="bookItemYear" data-testid="bookItemYear">Tahun Terbit</p>
+          <button class="bookItemIsCompleteButton" data-testid="bookItemIsCompleteButton">Selesai Dibaca</button>
+          <button class="bookItemDeleteButton" data-testid="bookItemDeleteButton">Hapus</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="book_self">
+      <h2>Selesai dibaca</h2>
+      <div id="completeBookList" class="listBook" data-testid="completeBookList">
+        <!-- Buku Selesai Dibaca akan ditambahkan di sini -->
+        <div class="bookItem" data-testid="bookItem">
+          <h3 class="bookItemTitle" data-testid="bookItemTitle">Judul Buku</h3>
+          <p class="bookItemAuthor" data-testid="bookItemAuthor">Penulis Buku</p>
+          <p class="bookItemYear" data-testid="bookItemYear">Tahun Terbit</p>
+          <button class="bookItemIsCompleteButton" data-testid="bookItemIsCompleteButton">Selesai Dibaca</button>
+          <button class="bookItemDeleteButton" data-testid="bookItemDeleteButton">Hapus</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="editModal" class="modal">
+    <div class="modal-content">
+      <span class="close-edit">&times;</span>
+      <h2>Edit Buku</h2>
+      <form id="editForm">
+        <div class="input">
+          <label for="editFormTitle">Judul</label>
+          <input id="editFormTitle" type="text" required />
+        </div>
+        <div class="input">
+          <label for="editFormAuthor">Penulis</label>
+          <input id="editFormAuthor" type="text" required />
+        </div>
+        <div class="input">
+          <label for="editFormYear">Tahun</label>
+          <input id="editFormYear" type="number" required />
+        </div>
+        <div class="input_selesai">
+          <label for="editFormIsComplete">Selesai dibaca</label>
+          <input id="editFormIsComplete" type="checkbox" />
+        </div>
+        <button type="submit">Simpan Perubahan</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
